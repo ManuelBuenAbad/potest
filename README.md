@@ -21,15 +21,15 @@ Assume the data for these vendors is as follows:
 - Vendor C: 4.2 stars & 55 reviews, and
 - Vendor D: 2.2 stars & 364 reviews.
 
-![Example of Vendor PDFs](./figures/vendor_pdf.png)
+![Example of Vendor PDFs](./figures/vendor_pdfs.png)
 
 The probability we are interested is then
 
-$P(x_i > x_j \, \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \, \prod\limits_{j \neq i} \, \mathrm{d}x_j \ f_j(x_j) \cdot \int\limits_{\max(x_j)}^1 \, \mathrm{d}x_i f_i(x_i)$.
+$P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\limits_{j \neq i} \ \mathrm{d}x_j \ f_j(x_j) \cdot \int\limits_{\max(x_j)}^1 \ \mathrm{d}x_i f_i(x_i)$.
 
 Some manipulations converts this into
 
-$P(x_i > x_j \, \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \, \prod\limits_{j \neq i} \, \mathrm{d}x_j \ f_j(x_j) \cdot S(\max(x_j))$,
+$P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\limits_{j \neq i} \ \mathrm{d}x_j \ f_j(x_j) \cdot S(\max(x_j))$,
 
 where $S(\max(x_j)) = 1 - F(\max(x_j))$ is the survival density function, and $F(\max(x_j))$ is the cumulative density function.
 In our code, we perform these integrals numerically with the help of Quasi-Monte Carlo methods.
