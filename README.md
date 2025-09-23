@@ -6,13 +6,13 @@ Written by Manuel A. Buen-Abad.**
 📄 Description
 -----------------------------------------
 
-Based on vendors $i$ with ratings $r_i$ (in a rating system of scale $s$) based on $N_i$ reviews, this program computes the probability for each of these vendors to provide a costumer experience _better_ than all the other vendors.
+Based on vendors $i$ with ratings $r_i$ (in a rating system of scale $s$) based on $N_i$ reviews, this program computes the probability for each of these vendors to provide a customer experience _better_ than all the other vendors.
 We do this by modeling the probability density for a given vendor $i$ to give a positivie experience with the beta function:
 
 $f_i(x) \equiv \text{Beta}(x;\, \alpha_i, \beta_i) = \frac{\Gamma(\alpha_i + \beta_i)}{\Gamma(\alpha_i) \Gamma(\beta_i)} \, x^{\alpha_i - 1} (1 - x)^{\beta_i - 1}$,
 
 where $\Gamma(x)$ is the gamma function, $\alpha_i \equiv \left( \frac{r_i}{s} \right) \cdot N_i + 1$ and $\beta_i \equiv \left( 1 - \frac{r_i}{s} \right) \cdot N_i + 1$.
-Clearly $\alpha-1$ and $\beta-1$ are the average number of "successes" or "failures" for costumer experience.
+Clearly $\alpha-1$ and $\beta-1$ are the average number of "successes" or "failures" for customer experience.
 
 For example, consider 4 vendors rated with the 5-stars system.
 Assume the data for these vendors is as follows:
@@ -29,9 +29,9 @@ $P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\l
 
 Some manipulations converts this into
 
-$P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\limits_{j \neq i} \ \mathrm{d}x_j \ f_j(x_j) \cdot S(\max(x_j))$,
+$P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\limits_{j \neq i} \ \mathrm{d}x_j \ f_j(x_j) \cdot S_i(\max(x_j))$,
 
-where $S(\max(x_j)) = 1 - F(\max(x_j))$ is the survival density function, and $F(\max(x_j))$ is the cumulative density function.
+where $S(x) = 1 - F(x)$ is the survival density function, and $F(x)$ is the cumulative density function.
 In our code, we perform these integrals numerically with the help of Quasi-Monte Carlo methods.
 
 After running, our code yields
