@@ -27,6 +27,8 @@ The probability we are interested is then
 
 $P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\limits_{j \neq i} \ \mathrm{d}x_j \ f_j(x_j) \cdot \int\limits_{\max(x_j)}^1 \ \mathrm{d}x_i f_i(x_i)$.
 
+$$\text{test} \alpha + 5 + \int\limits_0^1 d x$$
+
 Some manipulations converts this into
 
 $P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\limits_{j \neq i} \ \mathrm{d}x_j \ f_j(x_j) \cdot S_i(\max(x_j))$,
