@@ -22,7 +22,7 @@ After running, our code yields
 |      C |    4.2 |             55 |                0.921 |
 |      B |    3.4 |             15 |               0.0776 |
 |      A |      3 |             65 |              0.00127 |
-|      D |    2.2 |            364 |             6.09e-15 |
+|      D |    2.2 |            364 |                4e-11 |
 
 The third column is the probability we are interested in.
 Clearly C is the best vendor, with a probability of 92.1% of providing the user with a positive experience better than those of vendors B, A, and D.
@@ -107,12 +107,12 @@ $$
 p_i = \mathbb{E}_{X_{\text{--}i}} \left[ S_i \left( \underset{j \neq i}{\max} X_j \right) \right] = \int\limits_{[0, 1]^{N-1}} dx_{\text{--}i}\ \prod\limits_{j \neq i} f_j(x_j) \ S_i \left( \underset{j \neq i}{\max} x_j \right) \ ,
 $$
 
-where $\text{--}i$ means "all non-$i$ vendors", and $S(t) = 1 - F(t)$ is the survival function (SF, a.k.a. tail function), with $F(t) = \int\limits_0^t d\tau \ f(\tau)$ being the cumulative density function (CDF).
+where $\text{--}i$ means all non-$i$ vendors, and $S(t) = 1 - F(t)$ is the survival function (SF, a.k.a. tail function), with $F(t) = \int\limits_0^t d\tau \ f(\tau)$ being the cumulative density function (CDF).
 
 Collapsing the theta function over the $x_j$ instead yields a simpler 1-D expression:
 
 $$
-p_i = $\mathbb{E}_{X_i} \left[ \prod\limits_{j \neq i} F_j(X_i) \right] = \int\limits_0^1 d x \ f_i(x) \ \prod\limits_{j \neq i} F_j(x) \ .
+p_i = \mathbb{E}_{X_i} \left[ \prod\limits_{j \neq i} F_j(X_i) \right] = \int\limits_0^1 d x \ f_i(x) \ \prod\limits_{j \neq i} F_j(x) \ .
 $$
 
 In our code, we use the last expression. Our two methods, Quasi-Monte Carlo (QMC) and quadratures, simply compute this integral numerically.
@@ -124,7 +124,7 @@ This means that $X_i = F_i^{-1}(U_i)$ has PDF $f_i$; $F^{-1}$ is the probability
 With $x = F^{-1}_i(u)$, the change of variables $x \to u$ gives the Jacobian
 
 $$
-\frac{dx}{du} = \frac{1}{F^\prime_i(x)} = \frac{1}{f_i(x)} \ , \quad \Rightarrow \quad f_i(x) dx = du \ .
+\frac{dx}{du} = \frac{1}{F'_i(x)} = \frac{1}{f_i(x)} \ , \quad \Rightarrow \quad f_i(x) dx = du \ .
 $$
 
 Thus, we find a third equivalent formula:
