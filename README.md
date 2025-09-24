@@ -124,7 +124,7 @@ This means that $X_i = F_i^{-1}(U_i)$ has PDF $f_i$; $F^{-1}$ is the probability
 With $x = F^{-1}_i(u)$, the change of variables $x \to u$ gives the Jacobian
 
 $$
-\frac{dx}{du} = \frac{1}{F'_i(x)} = \frac{1}{f_i(x)} \ , \quad \Rightarrow \quad f_i(x) dx = du \ .
+\frac{dx}{du} = \frac{1}{F_i\prime(x)} = \frac{1}{f_i(x)} \ , \quad \Rightarrow \quad f_i(x) dx = du \ .
 $$
 
 Thus, we find a third equivalent formula:
