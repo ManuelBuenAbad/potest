@@ -31,7 +31,7 @@ Some manipulations converts this into
 
 $P(x_i > x_j \ \forall j \neq i) = \int\limits_0^1 ... \int\limits_0^1 \ \prod\limits_{j \neq i} \ \mathrm{d}x_j \ f_j(x_j) \cdot S_i(\max(x_j))$,
 
-where $S(x) = 1 - F(x)$ is the survival density function, and $F(x)$ is the cumulative density function.
+where $S(x) = 1 - F(x)$ is the survival function, and $F(x)$ is the cumulative density function.
 In our code, we perform these integrals numerically with the help of Quasi-Monte Carlo methods.
 
 After running, our code yields
