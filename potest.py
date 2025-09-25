@@ -31,7 +31,7 @@ import scipy.integrate as sci
 
 from tabulate import tabulate
 
-from typing import Callable, List, Tuple, Sequence
+from typing import Callable, List, Tuple, Sequence, Optional, Union
 from numpy.typing import ArrayLike
 
 
@@ -224,7 +224,7 @@ class BetaLike:
         # reference to scipy.stats.beta used for method implementations
         self._dist = sct.beta
 
-    def pdf(self, x):
+    def pdf(self, x: np.ndarray) -> np.ndarray:
         """
         Compute the probability density function at a given value or array of values.
 
@@ -241,7 +241,7 @@ class BetaLike:
 
         return self._dist.pdf(x, a=self.alpha, b=self.beta)
 
-    def cdf(self, x):
+    def cdf(self, x: np.ndarray) -> np.ndarray:
         """
         Compute the cumulative distribution function at a given value or array of values.
 
@@ -258,7 +258,7 @@ class BetaLike:
 
         return self._dist.cdf(x, a=self.alpha, b=self.beta)
 
-    def sf(self, x):
+    def sf(self, x: np.ndarray) -> np.ndarray:
         """
         Compute the survival function S(x) = 1 - F(x) at a given value or array of values.
 
@@ -275,7 +275,7 @@ class BetaLike:
 
         return self._dist.sf(x, a=self.alpha, b=self.beta)
 
-    def ppf(self, q):
+    def ppf(self, q: np.ndarray) -> np.ndarray:
         """
         Compute the percent point function (inverse CDF) at a given quantile or array of quantiles.
 
@@ -292,7 +292,7 @@ class BetaLike:
 
         return self._dist.ppf(q, a=self.alpha, b=self.beta)
 
-    def rvs(self, size=None, random_state=None):
+    def rvs(self, size: Optional[int] = None, random_state: Optional[int] = None) -> np.ndarray:
         """
         Draw random variates from the Beta-like distribution.
 
@@ -311,7 +311,7 @@ class BetaLike:
 
         return self._dist.rvs(a=self.alpha, b=self.beta, size=size, random_state=random_state)
 
-    def __call__(self, x):
+    def __call__(self, x: np.ndarray) -> np.ndarray:
         """
         Allow the instance to be called like a function (alias for pdf).
 
@@ -346,11 +346,12 @@ class BetaLike:
 # ---------------------------------------------
 
 
-def superior_experience_prob(pdf_ppf_candidate: tuple,
-                             cdf_list: list,
+def superior_experience_prob(pdf_ppf_candidate: Tuple[Callable[[np.ndarray], np.ndarray],
+                                                      Callable[[np.ndarray], np.ndarray]],
+                             cdf_list: Sequence[Callable[[np.ndarray], np.ndarray]],
                              method: str = _method_,
                              n_samples: int = _Nsamples_,
-                             seed: int = 0):
+                             seed: int = 0) -> Tuple[float, float]:
     """
     Estimate the probability that a candidate vendor provides the best outcome.
 
