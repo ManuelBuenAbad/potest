@@ -1,8 +1,8 @@
 # potest
 
-**"POsiTive Experience Statistical Test": a simple code that, based on input data about vendors and their ratings, recommends which is most likely to result in a positive experience to the client.
+**"POsiTive Experience Statistical Test":** a simple code that, based on input data about vendors and their ratings, recommends which is most likely to result in a positive experience to the client.
 
-Written by Manuel A. Buen-Abad.**
+**Written by Manuel A. Buen-Abad.**
 
 This project was inspired by [this 3Blue1Brown video](https://youtu.be/8idr1WZ1A7Q?si=ONVqJ2fC3hNXjYGx).
 
