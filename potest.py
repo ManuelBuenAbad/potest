@@ -31,6 +31,9 @@ import scipy.integrate as sci
 
 from tabulate import tabulate
 
+from typing import Callable, List, Tuple, Sequence
+from numpy.typing import ArrayLike
+
 
 # ****************************************
 
@@ -48,7 +51,7 @@ _Nsamples_ = (2**16) # default number of samples for QMC integration method
 # ---------------------------------------------
 
 
-def round_sig(x, sig=3):
+def round_sig(x: ArrayLike, sig: int = 3) -> np.ndarray:
     """
     Round a scalar or array to a specified number of significant digits.
 
@@ -86,7 +89,7 @@ def round_sig(x, sig=3):
 # ---------------------------------------------
 
 
-def parse_cli(argv):
+def parse_cli(argv: List[str]) -> Tuple[str, int, bool, bool]:
     """
     Parse command-line arguments for the vendor-best probability estimator.
 
