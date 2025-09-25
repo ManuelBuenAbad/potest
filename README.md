@@ -159,7 +159,7 @@ $$
 \hat{p}_i = \frac{1}{M} \sum\limits_{k=1}^{M} \prod\limits_{j \neq i} F_j(F_i^{-1}(u^{(k)})) \ .
 $$
 
-In a Monte-Carlo method, the \(\left\{ u^{(k)} \right\}_{k=1}^{M}\) are $M$ iid draws from $\mathrm{Uniform}(0, 1)$.
+In a Monte-Carlo method, the $\{ u^{(k)} \}_{k=1}^{M}$ are $M$ iid draws from $\mathrm{Uniform}(0, 1)$.
 In our QMC method, we use a Sobol sequence, which is deterministic and low-discrepancy.
 The advantage of using a QMC method over a pure MC is that the integration error is much smaller for the same number of samples (for moderate dimensions and smoothness).
 
