@@ -124,10 +124,10 @@ With the help of the step function, some straightforward manipulations show that
 First:
 
 $$
-p_i = \mathbb{E}_{X_{\text{\textendash}i}} \left[ S_i \left( \underset{j \neq i}{\max} X_j \right) \right] = \int\limits_{[0, 1]^{N-1}} dx_{\text{\textendash}i}^{N-1}\ \prod\limits_{j \neq i} f_j(x_j) \ S_i \left( \underset{j \neq i}{\max} x_j \right) \ ,
+p_i = \mathbb{E}_{X_{\textendash i}} \left[ S_i \left( \underset{j \neq i}{\max} X_j \right) \right] = \int\limits_{[0, 1]^{N-1}} dx_{\textendash i}^{N-1}\ \prod\limits_{j \neq i} f_j(x_j) \ S_i \left( \underset{j \neq i}{\max} x_j \right) \ ,
 $$
 
-where $\text{\textendash}i$ refers to all vendors but $i$, and $S(t) = 1 - F(t)$ is the survival function (SF, a.k.a. tail function), with $F(t) = \int\limits_0^t d\tau \ f(\tau)$ being the cumulative density function (CDF).
+where $\textendash i$ refers to all vendors but $i$, and $S(t) = 1 - F(t)$ is the survival function (SF, a.k.a. tail function), with $F(t) = \int\limits_0^t d\tau \ f(\tau)$ being the cumulative density function (CDF).
 
 Collapsing the step function over the $x_j$ instead yields a simpler 1-D expression:
 
